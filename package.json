@@ -1,0 +1,27 @@
+{
+  "name": "sk-build-profile",
+  "version": "0.0.1",
+  "homepage": "http://bothness.github.io/sk-build-profile",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview",
+    "deploy": "gh-pages -d build -t true"
+  },
+  "devDependencies": {
+    "@onsvisual/svelte-maps": "^0.0.15",
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-static": "^1.0.0-next.26",
+    "@sveltejs/kit": "next",
+    "@turf/bbox": "^6.5.0",
+    "@turf/helpers": "^6.5.0",
+    "@turf/simplify": "^6.5.0",
+    "d3-dsv": "^3.0.1",
+    "gh-pages": "^3.2.3",
+    "pym.js": "^1.3.2",
+    "svelte": "^3.44.0",
+    "wellknown": "^0.5.0"
+  },
+  "type": "module"
+}
