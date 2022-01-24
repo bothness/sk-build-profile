@@ -64,9 +64,19 @@ LIMIT 1`;
     let row = str.split("\n")[1];
     let wkt = row.replaceAll("\"", "");
     let geojson = wellknown.parse(wkt);
-    geojson = simplify(geojson, {highQuality: true, tolerance: 0.001});
-    geojson.coordinates = roundAll(geojson.coordinates, 4);
-    return geojson;
+
+    let simple;
+    let length = 5000;
+    let precision = 5;
+    while (length >= 5000 && precision >= 2) {
+      simple = simplify(geojson, {highQuality: true, tolerance: Math.pow(10, -precision)});
+      simple.coordinates = roundAll(simple.coordinates, precision);
+      length = JSON.stringify(simple).length;
+      console.log(simple, length);
+      precision -= 1;
+    }
+
+    return simple;
   }
   async function makeTables(data) {
     const tabs = ['population', 'density', 'agemed', 'age10yr', 'ethnicity'];
