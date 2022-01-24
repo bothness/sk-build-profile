@@ -4,7 +4,7 @@
   "homepage": "http://bothness.github.io/sk-build-profile",
   "scripts": {
     "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
+    "build": "svelte-kit build && touch build/.nojekyll",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
     "deploy": "gh-pages -d build -t true"
